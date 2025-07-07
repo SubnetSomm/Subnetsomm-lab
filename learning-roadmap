@@ -1,0 +1,117 @@
+# 🧠 subnetsomm Cybersecurity Learning Roadmap
+
+This document tracks my progression from beginner to cybersecurity professional. It’s built around a mix of coding, networking, operating system knowledge, and hands-on labs. As I grow, this list will evolve.
+
+---
+
+## ✅ Core Skills
+
+### Python Programming (in progress)
+- [ ] Understand variables, loops, functions
+- [ ] Work with files and exceptions
+- [ ] Use libraries like `os`, `sys`, `subprocess`
+- [ ] Write scripts for automation
+- [ ] Use `requests` for HTTP interactions
+- [ ] Use `socket` for low-level networking
+- [ ] Parse data (JSON, CSV, text logs)
+
+---
+
+### Networking Fundamentals (refresher from CCNA)
+- [ ] OSI Model & TCP/IP Stack
+- [ ] IP addressing & subnetting
+- [ ] Common protocols (DNS, DHCP, HTTP/S, FTP, SSH)
+- [ ] Ports and services
+- [ ] Packet sniffing with Wireshark
+- [ ] Port scanning with Nmap
+- [ ] Practice with Packet Tracer / GNS3 / NetLab
+
+---
+
+### Linux Essentials
+- [ ] Basic commands (`ls`, `cd`, `mv`, `chmod`, etc.)
+- [ ] File permissions and ownership
+- [ ] Managing processes and services
+- [ ] SSH and remote file transfer
+- [ ] Shell scripting (Bash)
+- [ ] Navigating logs (`/var/log/`)
+- [ ] Install & explore Kali/Ubuntu in a VM
+
+---
+
+### Operating System Concepts
+- [ ] Understand system architecture (Linux vs Windows)
+- [ ] File systems and permissions
+- [ ] Processes, memory, and services
+- [ ] Windows Event Viewer & Registry basics
+- [ ] System logs & monitoring
+
+---
+
+## 🔐 Cybersecurity Knowledge
+
+- [ ] Understand the CIA triad
+- [ ] Learn about common threat types (malware, phishing, etc.)
+- [ ] Encryption basics: AES, RSA, hashing (SHA-256)
+- [ ] OWASP Top 10 vulnerabilities
+- [ ] Basics of authentication and authorization
+- [ ] Introduction to pentesting methodology
+
+---
+
+## 🧪 Hands-On Practice
+
+- [ ] Create a homelab with VirtualBox/VMs
+- [ ] TryHackMe beginner path
+- [ ] OverTheWire: Bandit wargame
+- [ ] Install & use tools like:
+  - [ ] Nmap
+  - [ ] Wireshark
+  - [ ] Burp Suite (Community Edition)
+  - [ ] John the Ripper or Hashcat
+  - [ ] Metasploit (via Kali)
+- [ ] Begin capturing and analyzing packets
+- [ ] Practice CTF-style challenges
+
+---
+
+## 🔧 Tools & Utilities
+
+- [ ] Git & GitHub basics
+- [ ] Markdown for documentation
+- [ ] Regular Expressions (regex)
+- [ ] SQL basics (for SQLi understanding)
+- [ ] CLI file & log parsing (`grep`, `awk`, `cut`)
+
+---
+
+## 🗓️ Goals by Month
+
+### Month 1
+- [ ] Finish Python beginner tutorial
+- [ ] Refresh subnetting and port knowledge
+- [ ] Start Linux terminal practice
+- [ ] Setup GitHub repo and push notes
+
+### Month 2
+- [ ] Finish Bandit wargame (OverTheWire)
+- [ ] Start TryHackMe beginner path
+- [ ] Build simple Python network tool (scanner, listener)
+- [ ] Use Nmap & Wireshark on home network
+
+---
+
+## 📚 Resources
+
+- Python: [https://realpython.com](https://realpython.com)
+- Linux: [https://linuxjourney.com](https://linuxjourney.com)
+- Networking: [https://www.practicalnetworking.net](https://www.practicalnetworking.net)
+- TryHackMe: [https://tryhackme.com](https://tryhackme.com)
+- OverTheWire: [https://overthewire.org](https://overthewire.org)
+- GitHub Docs: [https://docs.github.com](https://docs.github.com)
+
+---
+
+📝 *This roadmap is a living document. I'll be checking off what I finish and adding new skills as I grow.*
+
+— `subnetsomm`
