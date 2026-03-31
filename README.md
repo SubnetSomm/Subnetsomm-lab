@@ -1,11 +1,11 @@
 # Subnetsomm-lab
-“The digital cellar of subnetsomm — exploring cybersecurity, networking, and everything in between. A work-in-progress, just like a good fermentation.”
+“The digital cellar of me, subnetsomm, exploring cybersecurity, networking, and everything in between. A work-in-progress, just like a good fermentation.”
 
 Welcome to the digital cellar.
 
-This is my personal lab space where I document my journey into cybersecurity, networking, and IT fundamentals. It's a mix of notes, small tools, scripts, and hands-on experiments — all from the perspective of a beginner transitioning into the field.
+This is my personal lab space where I will document my journey through cybersecurity, networking, and IT fundamentals. It's a mix of notes for now but will include small tools, scripts, and hands-on experiments, all from the perspective of a beginner. 
 
-## 🔍 Topics I'm Exploring
+# Topics I'm Exploring
 - Networking basics (TCP/IP, DNS, routing, etc.)
 - Linux commands & scripting
 - Cybersecurity fundamentals
@@ -13,17 +13,17 @@ This is my personal lab space where I document my journey into cybersecurity, ne
 - Protocol analysis
 - Tools like Wireshark, Nmap, Burp Suite, etc.
 
-## ⚙️ Goals
+# Goals
 - Build a strong foundation in cybersecurity
 - Document everything I learn in a digestible, sharable way
-- Grow this lab as my skills develop — from basic to advanced
+- Grow this lab as my skills develop, from basic to advanced
 
 ---
 
-🛠️ This repo is a living project. Expect updates, revisions, and occasional messiness — that’s part of the process.
+# This repo is a living project. Expect updates, revisions, and occasional messiness, that’s part of the process.
 
 ---
 
-## 📄 License
+# License
 
 This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
