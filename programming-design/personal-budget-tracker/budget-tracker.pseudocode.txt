@@ -1,0 +1,259 @@
+// Project 3 – Personal Budget Tracker Pseudocode
+
+
+// CONSTANTS AND GLOBAL VARIABLES
+Constant Integer MAX_CATEGORIES = 20
+
+Declare Real    totalBalance
+Declare String  categoryNames[MAX_CATEGORIES]
+Declare Real    categoryTotals[MAX_CATEGORIES]
+Declare Integer categoryCount
+
+// Temporary variables used by several modules
+Declare String  transType
+Declare Real    amount
+Declare String  category
+Declare String  answer
+Declare String  motivationalMessage
+
+
+// MAIN MODULE
+Module main()
+
+    Call initializeData()
+
+    Call showWelcomeMessage()
+
+    Call enterTransactions()
+
+    Call displaySummary()
+
+End Module
+
+
+// INITIALIZATION
+Module initializeData()
+
+    Set totalBalance = 0
+    Set categoryCount = 0
+
+    Declare Integer index
+
+    For index = 0 To MAX_CATEGORIES - 1
+        Set categoryNames[index]  = ""
+        Set categoryTotals[index] = 0
+    End For
+
+End Module
+
+
+// USER GREETING
+Module showWelcomeMessage()
+
+    Display "Welcome to your Personal Budget Tracker!"
+    Display "This program will help you log income and expenses"
+    Display "and see how your spending habits affect your balance."
+    Display ""
+
+End Module
+
+
+// MAIN TRANSACTION ENTRY LOOP
+Module enterTransactions()
+
+    Set answer = "Y"
+	
+	// Open transaction log file
+	Declare File logFile
+	Open "TransactionLog.csv" For Append As logFile
+
+    While answer = "Y" Or answer = "y"
+
+        Call getTransaction(transType, amount, category)
+
+        // Decide whether this is income or expense and update totals
+        Call processTransaction(transType, amount, category)
+
+		// Write this transaction to the log file
+		Call writeTransactionToLog(logFile, transType, amount, category)
+
+        Display ""
+        Display "Do you want to enter another transaction? (Y/N): "
+        Input answer
+        Display ""
+
+    End While
+	
+	// Close the log file at the end
+	Close logFile
+
+End Module
+
+// WRITE A SINGLE TRANSACTION TO THE LOG FILE
+Module writeTransactionToLog(File logFile, String transType, Real amount, String category)
+
+	Write logFile, transType, ", ", amount, ", ", category
+	
+End Module
+
+
+// GET A SINGLE TRANSACTION FROM THE USER
+// Includes input validation for type and amount
+Module getTransaction(String transType, Real amount, String category)
+
+    Declare Boolean valid
+
+    // Get and validate transaction type
+    Set valid = False
+
+    While valid = False
+
+        Display "Enter transaction type (I for income, E for expense): "
+        Input transType
+
+        If transType = "I" Or transType = "i" Then
+            Set valid = True
+        Else If transType = "E" Or transType = "e" Then
+            Set valid = True
+        Else
+            Display "Invalid entry. Please enter I or E."
+        End If
+
+    End While
+
+
+    // Get and validate amount
+    Set valid = False
+
+    While valid = False
+
+        Display "Enter the transaction amount (greater than 0): "
+        Input amount
+
+        If amount > 0 Then
+            Set valid = True
+        Else
+            Display "Amount must be greater than 0."
+        End If
+
+    End While
+
+
+    // Get category
+    Display "Enter the category (for example: coffee, rent, client payment): "
+    Input category
+
+
+End Module
+
+
+// PROCESS A TRANSACTION: UPDATE BALANCE AND CATEGORY TOTALS
+Module processTransaction(String transType, Real amount, String category)
+
+    // Update overall balance
+    If transType = "I" Or transType = "i" Then
+        Set totalBalance = totalBalance + amount
+    Else
+        // treat expense as money going out
+        Set totalBalance = totalBalance - amount
+    End If
+
+    // Update totals for the given category
+    Call updateCategoryTotals(category, amount)
+
+    Display "Transaction recorded."
+
+End Module
+
+
+// UPDATE CATEGORY TOTALS USING PARALLEL ARRAYS
+// Adds new category if it does not exist yet
+Module updateCategoryTotals(String category, Real amount)
+
+    Declare Integer index
+
+    // Try to find existing category
+    Set index = findCategoryIndex(category)
+
+    If index = -1 Then
+
+        // Category does not exist yet; add it if there is space
+        If categoryCount < MAX_CATEGORIES Then
+            Set index = categoryCount
+            Set categoryNames[index]  = category
+            Set categoryTotals[index] = 0
+            Set categoryCount = categoryCount + 1
+        Else
+            Display "Warning: Maximum number of categories reached."
+            Display "         This transaction will not be added to category totals."
+            Return
+        End If
+
+    End If
+
+    // Add the amount to this category's total
+    Set categoryTotals[index] = categoryTotals[index] + amount
+
+End Module
+
+
+// FIND THE INDEX OF A CATEGORY IN THE ARRAY
+// Returns -1 if the category is not found
+Function findCategoryIndex(String category) Returns Integer
+
+    Declare Integer index
+
+    For index = 0 To categoryCount - 1
+        If categoryNames[index] = category Then
+            Return index
+        End If
+    End For
+
+    Return -1
+
+End Function
+
+
+// DISPLAY FINAL SUMMARY AND MOTIVATIONAL MESSAGE
+Module displaySummary()
+
+    Declare Integer index
+
+    Display "----------------------------------------"
+    Display "        Personal Budget Summary"
+    Display "----------------------------------------"
+    Display "Final balance: ", totalBalance
+    Display ""
+
+    If categoryCount > 0 Then
+        Display "Category totals:"
+        For index = 0 To categoryCount - 1
+            Display "   ", categoryNames[index], ": ", categoryTotals[index]
+        End For
+    Else
+        Display "No category totals to display."
+    End If
+
+    Display ""
+
+    Call getMotivationalMessage(totalBalance, motivationalMessage)
+
+    Display "Motivational message:"
+    Display motivationalMessage
+    Display "----------------------------------------"
+
+End Module
+
+
+// CHOOSE A MOTIVATIONAL MESSAGE BASED ON FINAL BALANCE
+Module getMotivationalMessage(Real totalBalance, String motivationalMessage)
+
+    If totalBalance > 0 Then
+        Set motivationalMessage = "Nice work! You're in the positive. Maybe treat yourself to a coffee."
+    Else If totalBalance = 0 Then
+        Set motivationalMessage = "You broke even today. Not bad—but keep an eye on those coffees."
+    Else
+        Set motivationalMessage = "You spent more than you earned today. Time to rein in the extras."
+    End If
+
+End Module
