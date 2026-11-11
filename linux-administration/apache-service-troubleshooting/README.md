@@ -26,4 +26,4 @@ My submission records Apache becoming active after nginx was stopped and disable
 
 ## Source and evidence
 
-Prepared from my saved submission, `Pisano - Apache Server Assignment.docx`, for ITN 170 · Fall 2025. The original course worksheet and unreviewed screenshots are retained in my private archive. Learning objectives here describe the skills practiced in the documented workflow.
+Prepared from my saved submission, `Pisano - Apache Server Assignment.docx`, for ITN 170 · Fall 2025. The original course worksheet has been reviewed and uploaded.
